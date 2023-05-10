@@ -23,11 +23,11 @@ import (
 	"sync"
 
 	"github.com/KohlsTechnology/git2consul-go/config"
-	"gopkg.in/src-d/go-git.v4"
-	"gopkg.in/src-d/go-git.v4/plumbing"
-	"gopkg.in/src-d/go-git.v4/plumbing/object"
-	"gopkg.in/src-d/go-git.v4/plumbing/transport"
-	"gopkg.in/src-d/go-git.v4/storage"
+	"github.com/go-git/go-git/v5"
+	"github.com/go-git/go-git/v5/plumbing"
+	"github.com/go-git/go-git/v5/plumbing/object"
+	"github.com/go-git/go-git/v5/plumbing/transport"
+	"github.com/go-git/go-git/v5/storage"
 )
 
 // Repo interface represents Repository
@@ -123,7 +123,7 @@ func (r *Repository) init(repoPath string) (int, error) {
 		err := r.Clone(repoPath)
 		if err != nil {
 			// more explicit error handling as a workaround for the upstream issue, tracked under:
-			// https://github.com/src-d/go-git/issues/741
+			// https://github.com/src-d/go-git/v5/issues/741
 			switch err {
 			case transport.ErrAuthenticationRequired:
 				os.RemoveAll(repoPath)
