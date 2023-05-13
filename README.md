@@ -3,6 +3,16 @@
 [![codecov](https://codecov.io/gh/KohlsTechnology/git2consul-go/branch/master/graph/badge.svg)](https://codecov.io/gh/KohlsTechnology/git2consul-go)
 [![Go Report Card](https://goreportcard.com/badge/github.com/KohlsTechnology/git2consul-go)](https://goreportcard.com/report/github.com/KohlsTechnology/git2consul-go)
 
+## Developers comments for this fork...
+
+Honor and glory go to Kohl's Technology - This repo is based on their great work https://github.com/KohlsTechnology/git2consul-go
+
+The following are my small contributions - 
+* Upgrading to go-git library to V5
+* Get rid if the vendor directory
+* Use dom file points to a specific commit with a fix to "Git PlainClone is throwing reference delta not found error #495" (https://github.com/go-git/go-git/pull/495).
+* Binary artifact is not available for this version
+
 ## Project Deprication and Archival
 
 **As of April 22, 2022 this project is no longer maintained. This repository is being archived(marked as read only).**
