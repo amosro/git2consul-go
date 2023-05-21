@@ -98,6 +98,7 @@ func (h *KVHandler) UpdateToHead(repo repository.Repo) error {
 		if err != nil {
 			return err
 		}
+		h.logger.Infof("KV PUT Delta: %s", deltas)
 		h.handleDeltas(repo, deltas) //nolint:errcheck
 
 		err = h.putKVRef(repo, refName)
