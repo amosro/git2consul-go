@@ -109,6 +109,7 @@ func (h *KVHandler) handleDeltas(repo repository.Repo, diff object.Changes) erro
 			return err
 		}
 		workDir := repository.WorkDir(repo)
+		h.logger.Infof("handleDeltas: %s", diff)
 		switch action {
 		case merkletrie.Insert:
 			filePath := filepath.Join(workDir, d.To.Name)
