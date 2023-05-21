@@ -73,5 +73,6 @@ func applySourceRoot(changes object.Changes, sourceRoot string) object.Changes {
 			selected = append(selected, change)
 		}
 	}
+	fmt.Printf("KV Diff Selected: %v", selected)
 	return selected
 }
