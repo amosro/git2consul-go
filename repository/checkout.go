@@ -28,7 +28,7 @@ import (
 
 func (r *Repository) checkoutConfigBranches() error {
 	err := r.Fetch(&git.FetchOptions{ //nolint:ineffassign,staticcheck
-		RefSpecs: []config.RefSpec{"refs/*:refs/*", "HEAD:refs/heads/HEAD"},
+		RefSpecs: []config.RefSpec{"+refs/heads/master:refs/remotes/origin/master"},
 		Auth:     r.Authentication,
 	})
 
@@ -60,7 +60,7 @@ func (r *Repository) checkoutConfigBranches() error {
 //CheckoutBranch performs a checkout on the specific branch
 func (r *Repository) CheckoutBranch(branch plumbing.ReferenceName) error {
 	err := r.Fetch(&git.FetchOptions{ //nolint:ineffassign,staticcheck
-		RefSpecs: []config.RefSpec{"refs/*:refs/*", "HEAD:refs/heads/HEAD"},
+		RefSpecs: []config.RefSpec{"+refs/heads/*:refs/remotes/origin/*", "HEAD:refs/heads/HEAD"},
 		Auth:     r.Authentication,
 		Force:    true,
 	})
