@@ -88,11 +88,6 @@ func (f *TextFile) Create(kv Handler, repo repository.Repo) error {
 	return nil
 }
 
-//Update functions updates the KV store based on the file content.
-func (f *TextFile) Update(kv Handler, repo repository.Repo) error {
-	return f.Create(kv, repo)
-}
-
 //Delete removes the key-value pair from the KV store.
 func (f *TextFile) Delete(kv Handler, repo repository.Repo) error {
 	err := kv.DeleteKV(repo, f.path)
@@ -130,6 +125,11 @@ func (f *YAMLFile) Update(kv Handler, repo repository.Repo) error {
 	f.Delete(kv, repo) //nolint:errcheck
 	return f.Create(kv, repo)
 }
+
+//Update functions updates the KV store based on the file content.
+//func (f *TextFile) Update(kv Handler, repo repository.Repo) error {
+//	return f.Create(kv, repo)
+//}
 
 //Delete removes the key-value pairs from the KV store under given prefix.
 func (f *YAMLFile) Delete(kv Handler, repo repository.Repo) error {
