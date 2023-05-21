@@ -69,9 +69,9 @@ func main() {
 		os.Exit(ExitCodeFlagError)
 	}
 
-	if debug {
+	// if debug {
 		log.SetLevel(log.DebugLevel)
-	}
+	// }
 
 	// TODO: Accept other logger inputs
 	switch logfmt {
