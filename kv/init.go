@@ -112,7 +112,7 @@ func (h *KVHandler) handleDeltas(repo repository.Repo, diff object.Changes) erro
 		switch action {
 		case merkletrie.Insert:
 			filePath := filepath.Join(workDir, d.To.Name)
-			h.logger.Debugf("Detected added file: %s", filePath)
+			h.logger.Infof("Detected added file: %s", filePath)
 			file := Init(filePath, repo)
 			err := file.Create(h, repo)
 			if err != nil {
@@ -120,7 +120,7 @@ func (h *KVHandler) handleDeltas(repo repository.Repo, diff object.Changes) erro
 			}
 		case merkletrie.Modify:
 			filePath := filepath.Join(workDir, d.To.Name)
-			h.logger.Debugf("Detected modified file: %s", filePath)
+			h.logger.Infof("Detected modified file: %s", filePath)
 			file := Init(filePath, repo)
 			err := file.Update(h, repo)
 			if err != nil {
@@ -128,7 +128,7 @@ func (h *KVHandler) handleDeltas(repo repository.Repo, diff object.Changes) erro
 			}
 		case merkletrie.Delete:
 			filePath := filepath.Join(workDir, d.From.Name)
-			h.logger.Debugf("Detected deleted file: %s", filePath)
+			h.logger.Infof("Detected deleted file: %s", filePath)
 			file := Init(filePath, repo)
 			err := file.Delete(h, repo)
 			if err != nil {
