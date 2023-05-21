@@ -8,7 +8,7 @@ require (
 	github.com/gorilla/mux v1.8.0
 	github.com/hashicorp/consul/api v1.12.0
 	github.com/stretchr/testify v1.7.0
-	gopkg.in/src-d/go-billy.v4 v4.3.2
+	github.com/go-git/go-billy/v5 v5.4.1
 	gopkg.in/yaml.v2 v2.4.0
 )
 
