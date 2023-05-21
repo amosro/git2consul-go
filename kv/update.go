@@ -71,7 +71,8 @@ func (h *KVHandler) UpdateToHead(repo repository.Repo) error {
 
 	// Local ref
 	refHash := head.Hash().String()
-	// log.Debugf("(consul) kvRef: %s | localRef: %s", kvRef, localRef)
+	// TODO : comment debug
+	log.Debugf("(consul update) kvRef: %s | localRef: %s", kvRef, localRef)
 
 	if len(kvRef) == 0 {
 		log.Infof("KV PUT changes: %s/%s", repo.Name(), refName)
