@@ -73,8 +73,9 @@ func applySourceRoot(changes object.Changes, sourceRoot string) object.Changes {
 		if strings.HasPrefix(name, sourceRoot) {
 			selected = append(selected, change)
 		}
+		log.WithField("caller", "DiffStatus").Infof("KV change: (%s) %v", name, change)
 	}
-	log.WithField("caller", "DiffStatus").Infof("KV change: %v", change)
-	log.WithField("caller", "DiffStatus").Infof("KV Diff Selected: %s %v", name, selected)
+	
+	log.WithField("caller", "DiffStatus").Infof("KV Diff Selected: %v", selected)
 	return selected
 }
