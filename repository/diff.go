@@ -18,8 +18,8 @@ package repository
 
 import (
 	"strings"
-	"fmt"
-
+        
+	"github.com/apex/log"
 	"github.com/go-git/go-git/v5/plumbing"
 	"github.com/go-git/go-git/v5/plumbing/object"
 )
@@ -74,6 +74,6 @@ func applySourceRoot(changes object.Changes, sourceRoot string) object.Changes {
 			selected = append(selected, change)
 		}
 	}
-	fmt.Errorf("KV Diff Selected: %v", selected)
+	log.Info("KV Diff Selected: %v", selected)
 	return selected
 }
