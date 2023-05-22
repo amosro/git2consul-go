@@ -120,8 +120,15 @@ func (h *KVHandler) handleDeltas(repo repository.Repo, diff object.Changes) erro
 				return err
 			}
 		case merkletrie.Modify:
+			filePath := filepath.Join(workDir, d.From.Name)
+			h.logger.Infof("Detected modified - old file: %s", filePath)
+			file := Init(filePath, repo)
+			err := file.Delete(h, repo)
+			if err != nil {
+				return err
+			}			
 			filePath := filepath.Join(workDir, d.To.Name)
-			h.logger.Infof("Detected modified file: %s", filePath)
+			h.logger.Infof("Detected modified - new file: %s", filePath)
 			file := Init(filePath, repo)
 			err := file.Update(h, repo)
 			if err != nil {
