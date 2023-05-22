@@ -74,6 +74,6 @@ func applySourceRoot(changes object.Changes, sourceRoot string) object.Changes {
 			selected = append(selected, change)
 		}
 	}
-	log.Info("KV Diff Selected: %v", selected)
+	log.WithField("caller", "DiffStatus").Infof("KV Diff Selected: %v", selected)
 	return selected
 }
