@@ -123,9 +123,9 @@ func (h *KVHandler) handleDeltas(repo repository.Repo, diff object.Changes) erro
 			FromfilePath := filepath.Join(workDir, d.From.Name)
 			h.logger.Infof("Detected modified - old file %s", FromfilePath)
 			ffile := Init(FromfilePath, repo)
-			err := ffile.Delete(h, repo)
-			if err != nil {
-				return err
+			ferr := ffile.Delete(h, repo)
+			if ferr != nil {
+				return ferr
 			}			
 			filePath := filepath.Join(workDir, d.To.Name)
 			h.logger.Infof("Detected modified - new file %s", filePath)
